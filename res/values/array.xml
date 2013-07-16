@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    
+    <string-array name="birds">
+        <item>Dunlin</item>
+        <item>Osprey</item>
+        <item>Sandwich Tern</item>
+        <item>Little Egret</item>
+        <item>Broad-Billed sandpiper</item>
+        <item>Black-headed gull</item>
+        <item>Greater Flamingo</item>
+        <item>Spoonbill</item>
+        <item>Black Winged Stilt</item>
+        <item>Redshank</item>
+        <item>Greenshank</item>
+        <item>Cattle Egret</item>
+        <item>Curlew</item>
+        <item>Black-necked Grebe</item>
+        <item>Great(White)Egret</item>
+        <item>Plover</item>
+        <item>Purple Sunbird</item>
+        <item>Crab Plover</item>
+        <item>Red-wattled Lapwing</item>
+        <item>Glossy lbis</item>
+        <item>Black-tailed Godwit</item>
+        <item>Socotra Cormorant</item>
+        
+    </string-array>
+    
+    
+<string-array name="birdimg">
+    <item>@drawable/dunlin</item>
+    <item>@drawable/osprey</item>
+    <item>@drawable/sandwich</item>
+    <item>@drawable/littleegret</item>
+    <item>@drawable/broadbilled</item>
+    <item>@drawable/blackheaded</item>
+    <item>@drawable/greaterflamingo</item>
+    <item>@drawable/spoonbill</item>
+    <item>@drawable/blackwinged</item>
+    <item>@drawable/redshank</item>
+    <item>@drawable/greenshank</item>
+    <item>@drawable/cattleegret</item>
+    <item>@drawable/curlew</item>
+    <item>@drawable/blacknecked</item>
+    <item>@drawable/greatwhite</item>
+    <item>@drawable/plover</item>
+    <item>@drawable/purplesunbird</item>
+    <item>@drawable/crabpower</item>
+    <item>@drawable/redwattled</item>
+    <item>@drawable/glossyibis</item>
+    <item>@drawable/blacktailed</item>
+    <item>@drawable/socotra</item>    
+</string-array>
+
+ <string-array name="gallery">
+     <item>Gallery</item>
+          </string-array>
+     
+
+   
+</resources>

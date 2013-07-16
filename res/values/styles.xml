@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<style name="CustomDialogTheme" parent="@android:style/Theme.Dialog">
+<item name="android:windowBackground">@color/icsblue</item>
+<item name="android:windowIsFloating">true</item>
+<item name="android:windowNoTitle">true</item>
+</style>
+   <style name="AppBaseTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    
+    <style name="ActionBarCompat">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@layout/topbar_gradient</item>
+    </style>
+    
+    <style name="ActionBarMenu">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@layout/menu_topbar_gradient</item>
+    </style>
+    
+	<style name="LightTabWidget" parent="@android:style/Widget.TabWidget">
+	    <item name="android:textColor">@color/tab_indicator_text</item>
+	</style>
+</resources>
