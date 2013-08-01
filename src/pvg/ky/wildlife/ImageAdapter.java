@@ -36,15 +36,18 @@ public class ImageAdapter extends BaseAdapter {
 		int index = 0;
 
 		for (int imageId : mImageIds) {
+			
 			Bitmap originalImage = BitmapFactory.decodeResource(mContext.getResources(), imageId);
+		
 			int width = originalImage.getWidth();
 			int height = originalImage.getHeight();
 
 			Matrix matrix = new Matrix();
 			matrix.preScale(1, -1);
 
-			Bitmap reflectionImage = Bitmap.createBitmap(originalImage, 0,
+		Bitmap reflectionImage = Bitmap.createBitmap(originalImage, 0,
 					height / 2, width, height / 2, matrix, false);
+
 
 			Bitmap bitmapWithReflection = Bitmap.createBitmap(width,
 					(height + height / 2), Config.ARGB_8888);
@@ -73,9 +76,11 @@ public class ImageAdapter extends BaseAdapter {
 
 			ImageView imageView = new ImageView(mContext);
 			imageView.setImageBitmap(bitmapWithReflection);
-			imageView.setLayoutParams(new GalleryFlow.LayoutParams(360, 480));
+			imageView.setLayoutParams(new GalleryFlow.LayoutParams(480,320));
 //			imageView.setScaleType(ScaleType.MATRIX);
 			mImages[index++] = imageView;
+			
+			
 		}
 		return true;
 	}

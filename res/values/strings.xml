@@ -1,7 +1,7 @@
 
 
 <resources>
-    <string name="application_name">Wildlife.ae</string>
+    <string name="application_name">Dubai Sanctuary</string>
     <string name="activity_name">ABS: Demos</string>
 
  <string name="changing_fragments">Wildlife.ae</string>
@@ -149,5 +149,6 @@
     <string name="name">Nome</string>
     <string name="registrar">Registrar</string>
 	<string name="registering">Registrando…</string>
+	<string name="imagesend">Capture &amp; Send Image</string>
     
 </resources>

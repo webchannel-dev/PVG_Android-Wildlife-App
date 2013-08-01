@@ -13,12 +13,13 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:divider="#282828"
-        android:dividerHeight="1dip"
+        android:dividerHeight="1dip"	
         android:background="#3F3F3F"
         android:fadingEdge="none"
         android:listSelector="@drawable/list_selector">
 
     </ListView>
+   
     
     <RelativeLayout
         android:id="@+id/layoutToMove"
@@ -47,60 +48,85 @@
             android:layout_toRightOf="@+id/menuButton"
             android:background="@drawable/custom_button_black" />
 		
+ 
+		
 <!-- 		Main view  -->
 
   <LinearLayout
 		    android:id="@+id/mainview"
-		    android:layout_width="wrap_content"
+		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 		    android:layout_alignParentBottom="true"
 		    android:layout_alignParentLeft="true"
-		    android:layout_alignParentRight="true"
 		    android:layout_below="@+id/actionBar"
-		    android:orientation="vertical" >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/arrowup" />
-
-            <TextView
-                android:id="@+id/editText1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:text="Touch here to open Menu" >
-
-                <requestFocus />
-            </TextView>
-
-        </LinearLayout>
+		    android:orientation="vertical" 
+		    android:background="@color/white">
+		    
+             
 
         <TextView
             android:id="@+id/editText3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:text="Dubai Wildlife (Ras Al Khor) - Birds Sanctuary" />
+            android:gravity="center_horizontal"
+            android:textSize="18sp"
+            android:textColor="@color/icsdarkblue"
+            android:textStyle="bold"
+            android:paddingBottom="5dp"
+            android:text="Dubai Wildlife (Ras Al Khor) - Birds Sanctuary"
+            android:shadowColor="#CEE3F6"
+    android:shadowRadius="2.5"
+    android:shadowDx="10"
+    android:shadowDy="10" />
 
         <TextView
             android:id="@+id/editText2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:ems="10"
+            android:paddingTop="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp"
+             android:shadowColor="#BDBDBD"
+    android:shadowRadius="2.5"
+    android:shadowDx="6"
+    android:shadowDy="6"
+            android:gravity="left"
+            android:maxLines = "100"
+            android:scrollbars = "vertical"
             android:inputType="textMultiLine"
-            android:text="Wildlife.ae is the official applicaiton of the Ras Al Khor Wildlife Sanctuary or RAKWS.\nRAKWS is one of the few urban protected areas in the world, holding approximately more than 450 species of fauna and 47 species of flora.\nThe sanctuary also boasts Â various ecosystems from mangroves, mudflats, lagoons and sabkhas to reed beds and shrub lands." />
+                       />
 
     </LinearLayout>
     
+    
 <!--   END OF MAIN VIEW -->
+<!-- 		Overlay screen  -->
+
+<RelativeLayout
+    	android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#4D000000"
+        
+        android:id="@+id/top_layout">
+ 
+    <ImageView
+        android:id="@+id/ivInstruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="50dp"
+        android:layout_alignParentLeft="true"
+      	android:clickable="false"
+        android:scaleType="center"
+        />
+        
+    </RelativeLayout>
+<!--  end of overlay screen  -->
+
 		
 <!-- tab parent linear layout -->
+
+
 <!-- 		    start of fauna layout -->
 		    <LinearLayout
 		    android:id="@+id/fauna"
@@ -159,6 +185,29 @@
 		    
 <!-- 		    end of Fauna layout -->
 		    
+		    <!-- 		Overlay screen  -->
+
+<RelativeLayout
+    	android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#4D000000"
+        
+        android:id="@+id/faunaover">
+ 
+    <ImageView
+        android:id="@+id/faunaimage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      android:layout_centerInParent="true"    
+       android:layout_alignParentTop="true"
+        android:clickable="false"
+        
+        android:scaleType="center"
+        />
+
+    </RelativeLayout>
+<!--  end of overlay screen  -->
+		    
 <!-- 	Sanctuary Layout	    -->
 		<LinearLayout
 		    android:id="@+id/layout"
@@ -182,8 +231,8 @@
             android:layout_weight="1"
 
            android:text="Do&apos;s &amp; Dont"   
-           android:background="@drawable/shape"     
-           
+           android:background="@drawable/blue"
+            style="@style/ButtonText"         
 />
 
         <Button
@@ -192,8 +241,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Rules &amp; Regulations" 
-            android:background="@drawable/shape"
-            />
+             android:background="@drawable/green"
+            style="@style/ButtonText"    />
 
     </LinearLayout>
 
@@ -209,7 +258,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="History &amp; Management" 
-            android:background="@drawable/shape"/>
+            android:background="@drawable/purple"
+            style="@style/ButtonText"/>
 
         <Button
              android:id="@+id/button4"
@@ -217,7 +267,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Factsheet"
-            android:background="@drawable/shape" />
+            android:background="@drawable/yellow"
+            style="@style/ButtonText" />
 
     </LinearLayout>
 
@@ -233,15 +284,17 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Future plan"
-            android:background="@drawable/shape" />
+            android:background="@drawable/blue"
+            style="@style/ButtonText" />
 
         <Button
             android:id="@+id/button6"
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Plan A visit"
-            android:background="@drawable/shape" />
+            android:text="Plan a visit"
+           android:background="@drawable/red"
+            style="@style/ButtonText" />
 
     </LinearLayout>
 		   
@@ -254,7 +307,7 @@
 		
 		
 		 
-<!-- 		 Gallery layout -->
+<!-- 		 Terrain and Bird hides layout -->
 		<LinearLayout
 		    android:id="@+id/layoutimage"
 		    android:layout_width="wrap_content"
@@ -273,45 +326,68 @@
           />
         
 		    </LinearLayout>
-<!-- 		    End of gallery layout -->
+<!-- 		end of Terrain and Bird hides layout -->
 <!-- start of gallery layout -->
-		  
-		  <LinearLayout
-		    android:id="@+id/layoutgallery"
-		    android:layout_width="fill_parent"
-		    android:layout_height="fill_parent"
-		    android:layout_alignParentBottom="true"
-		    android:layout_alignParentLeft="true"
-		    android:layout_alignParentRight="true"
-		    android:layout_below="@+id/actionBar"
-		    android:orientation="vertical" >  
-		    
-		 <pvg.ky.wildlife.GalleryFlow
-		     android:id="@+id/Gallery01"
-		     style="@style/Theme.Styled"
-		     android:layout_width="fill_parent"
-		     android:layout_height="wrap_content"
-		     android:layout_above="@+id/seemore"
-		     android:layout_centerInParent="true" />
+		<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+       android:id="@+id/layoutgallery"
+         android:layout_below="@+id/actionBar"
+         android:background="#ffffff">
 
-		 <Button
-		     android:id="@+id/seemore"
-		     android:layout_width="match_parent"
-		     android:layout_height="50dp"
-		     android:text="See More" 
-		     android:layout_alignParentBottom="true"
-         android:layout_centerHorizontal="true"
-		     />
+		     
+	    
+		 <pvg.ky.wildlife.GalleryFlow
+		     	android:id="@+id/Gallery01" 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent" 
+	android:layout_centerInParent="true" />
+
+
 		 
-		 
-		 </LinearLayout>
+	
+		  <Button
+     android:id="@+id/seemore"
+     android:layout_width="fill_parent"
+     android:layout_height="50dp"
+     android:layout_alignParentBottom="true"
+     android:gravity="bottom|center_vertical|center_horizontal"
+     android:text="See More" />
+    
+</RelativeLayout>
+		  
+		
 <!-- 		 end of gallery layout -->
-		 
+<!-- 		Overlay screen  -->
+
+<RelativeLayout
+    	android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#4D000000"
+        
+        android:id="@+id/galleryover">
+ 
+    <ImageView
+        android:id="@+id/galleryimage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true" 
+       android:layout_alignParentTop="true"
+       android:paddingTop="20dp"
+      	android:clickable="false"
+        android:scaleType="center"
+        />
+        
+    </RelativeLayout>
+<!--  end of overlay screen  -->
+ 
 <!-- 		  layout for Getsocial -->
-		 <LinearLayout
+	    
+     <LinearLayout
 		    android:id="@+id/getsocial"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
 		    android:layout_alignParentBottom="true"
 		    android:layout_alignParentLeft="true"
 		    android:layout_alignParentRight="true"
@@ -329,8 +405,11 @@
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Facebook" 
-            android:background="@drawable/shape"/>
+            android:background="@drawable/blue"
+            style="@style/ButtonText"
+           
+            android:text="Facebook"
+          />
 
     </LinearLayout>
 
@@ -345,20 +424,23 @@
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Twitter"
-            android:background="@drawable/shape" />
+             android:background="@drawable/purple"
+             android:text="Twitter"
+            style="@style/ButtonText"/>
 
         <Button
             android:id="@+id/blog"
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight="1"
+          
             android:text="Blog"
-            android:background="@drawable/shape" />
+             android:background="@drawable/yellow"
+            style="@style/ButtonText"/>
 
     </LinearLayout>
 
-    <LinearLayout
+      <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:orientation="horizontal"
@@ -369,12 +451,16 @@
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight="1"
+        
             android:text="Forum"
-            android:background="@drawable/shape" />
-
+              android:background="@drawable/green"
+            style="@style/ButtonText"
+           />
+        
+        
+        
     </LinearLayout>
-		 
-		     </LinearLayout>
+    </LinearLayout>
 <!-- 		     end of getsocial -->
     </RelativeLayout>
 </RelativeLayout>

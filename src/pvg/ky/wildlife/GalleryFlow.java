@@ -53,7 +53,7 @@ public class GalleryFlow extends Gallery {
     }
 
     private static int getCenterOfView(View view) {
-            //return view.getLeft() + view.getWidth();
+           //return view.getLeft() + view.getWidth();
             return view.getLeft() + view.getWidth() / 2;
     }
 

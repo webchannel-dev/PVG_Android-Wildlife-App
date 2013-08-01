@@ -2,31 +2,35 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1" package="pvg.ky.wildlife">
 
     <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="16"/>
+    
+    <supports-screens android:resizeable="true"
+                 android:smallScreens="true"  
+                 android:normalScreens="true"                  
+                 android:largeScreens="true"
+                 android:xlargeScreens="true"                  
+                 android:anyDensity="true" />
 
     <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application android:icon="@drawable/icon" android:label="@string/application_name">
-
-        <activity android:name="pvg.ky.wildlife.TabNavigation" android:theme="@style/Theme.Sherlock">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="com.actionbarsherlock.sample.demos.EXAMPLE"/>
-            </intent-filter>
+        <activity android:name="PrincipalActivity" android:theme="@style/Theme.Sherlock"
+            android:configChanges="orientation|keyboard|keyboardHidden"
+            android:screenOrientation="sensor"            
+            >
+            
         </activity>
-        <activity android:name="SplashScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+        <activity android:name="SplashScreen" 
+            android:theme="@style/Theme.Sherlock" android:icon="@drawable/icon" android:label="@string/application_name"
+            android:configChanges="orientation|keyboard|keyboardHidden"
+            android:screenOrientation="portrait"
+            >
+             <intent-filter>
+        <action android:name="android.intent.action.MAIN"></action>
+        <category android:name="android.intent.category.LAUNCHER"></category>
+    </intent-filter>
         </activity>
-        <activity android:name="AnimatedSliding" android:theme="@style/Theme.Sherlock"></activity>
-        <activity android:name="ActivityMain" android:theme="@style/Theme.Sherlock"></activity>
-        <activity android:name="Sanctuary" android:theme="@style/Sherlock.__Theme"></activity>
-        <activity android:name="Birdhides"></activity>
-        <activity android:theme="@style/Sherlock.__Theme" android:name="Terrain"></activity>
-        <activity android:label="@string/application_name" android:name="PrincipalActivity" android:theme="@style/Theme.Sherlock"></activity>
 
     </application>
 </manifest>
