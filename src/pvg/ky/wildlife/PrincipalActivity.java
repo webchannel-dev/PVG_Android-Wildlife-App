@@ -1,5 +1,25 @@
 package pvg.ky.wildlife;
 
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.SocketException;
+import java.net.URL;
+
+import org.apache.commons.net.ftp.FTP;
+import org.apache.commons.net.ftp.FTPClient;
+import org.apache.commons.net.ftp.FTPReply;
+import org.apache.http.client.ResponseHandler;
+
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -7,11 +27,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.PointF;
-import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.FragmentTransaction;
 import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
@@ -33,12 +55,11 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.Tab;
 import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
 import com.wildlife.util.MenuEventController;
 import com.wildlife.util.MenuLazyAdapter;
 import com.wildlife.util.OnSwipeTouchListener;
@@ -52,7 +73,12 @@ public class PrincipalActivity extends SherlockActivity implements ActionBar.Tab
     public static final String ICON = "icon";
     public static final String TITLE = "title";
     public static final String DESCRIPTION = "description";
-    
+    final static private int NEW_PICTURE = 1;
+    private static final int CAMERA_PIC_REQUEST = 1111;
+    Bitmap bm;
+    File file = new File(Environment.getExternalStorageDirectory()+File.separator +"/Wildlife/"+ System.currentTimeMillis()+".jpg");
+  
+   
 	private RelativeLayout layout,overlay,layoutgallery,faunaover,galleryover;
 	private LinearLayout layoutsanctuary,layoutimage,getsocial,fauna,mainview;
 	
@@ -74,9 +100,10 @@ public class PrincipalActivity extends SherlockActivity implements ActionBar.Tab
     private ImageView image;
 
 String[] tabs;
+String path;
 	private ListView listMenu;
 	private TextView appName;
-	Button dodont,rules,history,factsheet,future,visit,facebook,twitter,blog,forum;
+	Button dodont,rules,history,factsheet,future,visit,facebook,twitter,blog,forum,pic;
 
 	 private static final String TAG = "Touch";
 	    @SuppressWarnings("unused")
@@ -105,7 +132,9 @@ String[] tabs;
         super.onCreate(savedInstanceState);
         Internetcheck internet = new Internetcheck(getApplicationContext());
         final Boolean isInternetPresent = internet.isConnectingToInternet();
+      
         setContentView(R.layout.principal);
+        
         Integer[] images = { R.drawable.gallery, R.drawable.gallery2,
                 R.drawable.gallery3, R.drawable.gallery4, R.drawable.gallery5,
                 R.drawable.gallery6 };
@@ -607,6 +636,7 @@ String[] tabs;
 					  twitter=(Button)findViewById(R.id.twitter);
 					    blog=(Button)findViewById(R.id.blog);
 					  forum=(Button)findViewById(R.id.forum);
+					  pic=(Button)findViewById(R.id.takeapic);
 					  getsocial();
 					  
 				} 
@@ -634,7 +664,8 @@ String[] tabs;
 			
 					dialog.setTitle("Contact & Credit");
 					
-					
+					ImageView imaged = (ImageView) dialog.findViewById(R.id.imageView1);
+					imaged.setImageResource(R.drawable.dm);
 		 
 					// set the custom dialog components - text, image and button
 					TextView text = (TextView) dialog.findViewById(R.id.text);
@@ -652,7 +683,7 @@ String[] tabs;
 						@Override
 						public void onClick(View v) {
 							dialog.dismiss();
-							finish();
+							
 							Intent intent= new Intent(context, PrincipalActivity.class);
 							startActivity(intent);
 							
@@ -864,8 +895,32 @@ String[] tabs;
 				
 				});
 				
+				pic.setOnClickListener(new OnClickListener() {
+
+					 
+					@Override
+					public void onClick(View arg0) {
+						if (isInternetPresent) {Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+				        startActivityForResult(intent, CAMERA_PIC_REQUEST);
+				        }
+						else {
+		                    // Internet connection is not present
+		                    // Ask user to connect to Internet
+		                    showAlertDialog(PrincipalActivity.this, "No Internet Connection", "you need internet connection to view this!", false);
+		                }						
+						
+						}
+					
+					
+					
+				
+				});
+				
 			}
 
+			
+			
+			
 			private void clicking() {
 				dodont.setOnClickListener(new OnClickListener() {
 					 
@@ -1388,13 +1443,90 @@ String[] tabs;
 
 	@Override
 	public void onClick(View paramView) {
-		finish();
+		
 		Intent intent= new Intent(context, PrincipalActivity.class);
 		startActivity(intent);
 		
 		
 	}
-	
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == CAMERA_PIC_REQUEST) {
+        	String filepath;
+            //2
+          Bitmap thumbnail = (Bitmap) data.getExtras().get("data");  
+           // mImage.setImageBitmap(thumbnail);
+            //3
+            ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+           thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+            //4
+           
+           
+            try {
+                file.createNewFile();
+                FileOutputStream fo = new FileOutputStream(file);
+                //5
+                fo.write(bytes.toByteArray());
+                fo.close();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+          
+            doFileUpload();
+          
+
+           String path = file.toString();
+            Intent intent1 = new Intent(PrincipalActivity.this, MailSenderActivity.class);
+    	  	intent1.putExtra("pvg.twopi.ky.Record", path);
+    	  	startActivity(intent1);
+    	  	this.finishActivity(1);
+    	  	finish();
+        }
+       
+	  	
+    }
+	private void doFileUpload(){
+		
+
+		  // TODO Auto-generated method stub
+			 boolean tempStatus = false;
+	          String desFileName = "";
+	          FileInputStream srcFileStream = null;
+	          String get ; 
+	       
+	          
+	          FTPClient con = null;
+
+//	          try
+//	          {
+//	              con = new FTPClient();
+//	              con.connect("198.38.82.37");
+//
+//	              if (con.login("ky@photint.com", "kyphotint"))
+//	              {
+//	                  con.enterLocalPassiveMode(); // important!
+//	                  con.setFileType(FTP.BINARY_FILE_TYPE);
+//	                  String data = file.toString();
+//
+//	                  FileInputStream in = new FileInputStream(new File(data));
+//	                  boolean result = con.storeFile("/wildlife/"+ System.currentTimeMillis()+".jpg" , in);
+//	                  in.close();
+//	                  if (result) Log.v("upload result", "succeeded");
+//	                  con.logout();
+//	                  con.disconnect();
+//	              }
+//	          }
+//	          catch (Exception e)
+//	          {
+//	              e.printStackTrace();
+//	          }
+	                      
+		 
+		 
+
+       
+	}
 	
 
 }

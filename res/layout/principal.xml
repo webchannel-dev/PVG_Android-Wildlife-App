@@ -89,8 +89,8 @@
             android:paddingBottom="5dp"
              android:shadowColor="#BDBDBD"
     android:shadowRadius="2.5"
-    android:shadowDx="6"
-    android:shadowDy="6"
+    android:shadowDx="2"
+    android:shadowDy="2"
             android:gravity="left"
             android:maxLines = "100"
             android:scrollbars = "vertical"
@@ -411,6 +411,17 @@
             android:text="Facebook"
           />
 
+        <Button
+            android:id="@+id/takeapic"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/blue"
+            style="@style/ButtonText"
+           
+            android:text="Shoot and send a pic"
+          />
+        
     </LinearLayout>
 
     <LinearLayout
