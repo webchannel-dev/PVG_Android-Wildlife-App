@@ -941,6 +941,7 @@ String path;
 						// set the custom dialog components - text, image and button
 						TextView text = (TextView) dialog.findViewById(R.id.text);
 						text.setMovementMethod(new ScrollingMovementMethod());
+						
 						text.setText("The following practices are prohibited and may result in heavy fines and legal action: \n \n1) Entering the sanctuary, outside the hides, without a permit from Environment Department, Dubai Municipality \n\n2) Parking outside the designated areas\n\n3) Introducing pets or foreign species into the sanctuary\n\n4) Entering beyond the track area\n\n5) Polluting the soil, water, or air of the sanctuary\n\n6) Approaching or harming wildlife\n\n7) Damaging vegetation or geological formations\n\n8) Collecting or transporting plants, animals or parts thereof\n\n9) Producing noise or using noise producing tools/equipment\n\n10) Using firearms, hunting or trapping of any kind");
 						
 //						ImageView image = (ImageView) dialog.findViewById(R.id.image);
