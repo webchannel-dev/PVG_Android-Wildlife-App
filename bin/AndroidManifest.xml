@@ -35,6 +35,8 @@
     </intent-filter>
         </activity>
         <activity android:name="MailSenderActivity"></activity>
+        <activity android:name="UploadAudioDemo"></activity>
+        <activity android:name="Record"></activity>
 
     </application>
 </manifest>
