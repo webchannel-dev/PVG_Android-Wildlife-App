@@ -11,7 +11,7 @@ import android.view.Window;
 import android.widget.ImageView;
 
 public class SplashScreen extends Activity {
-	protected int _splashTime = 2000; 
+	protected int _splashTime = 200000; 
 
 	private Thread splashTread;
 

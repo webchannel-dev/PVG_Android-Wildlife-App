@@ -4,32 +4,33 @@
     android:layout_height="match_parent"
     android:background="@drawable/menu_bg"
     tools:context=".PrincipalActivity" >
-    
-    <include layout="@layout/actionbar_menu" android:id="@+id/actionBarMenu"/>
+
+    <include
+        android:id="@+id/actionBarMenu"
+        layout="@layout/actionbar_menu" />
 
     <ListView
         android:id="@+id/listMenu"
-        android:layout_below="@+id/actionBarMenu"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:divider="#282828"
-        android:dividerHeight="1dip"	
+        android:layout_below="@+id/actionBarMenu"
         android:background="#3F3F3F"
+        android:divider="#282828"
+        android:dividerHeight="1dip"
         android:fadingEdge="none"
-        android:listSelector="@drawable/list_selector">
-
+        android:listSelector="@drawable/list_selector" >
     </ListView>
-   
-    
+
     <RelativeLayout
         android:id="@+id/layoutToMove"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-       
-        android:background="#282828">
-        
-        <include layout="@layout/actionbar_layout" android:id="@+id/actionBar"/>
-        
+        android:background="#282828" >
+
+        <include
+            android:id="@+id/actionBar"
+            layout="@layout/actionbar_layout" />
+
         <ImageButton
             android:id="@+id/menuButton"
             android:layout_width="48dp"
@@ -37,441 +38,365 @@
             android:layout_alignBottom="@+id/actionBar"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:onClick="openCloseMenu"
-			android:src="@drawable/menu2"
-			android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            android:onClick="openCloseMenu" />
 
-		<Button
-		    android:id="@+id/separator"
+        <Button
+            android:id="@+id/separator"
             android:layout_width="1dp"
             android:layout_height="50dp"
             android:layout_toRightOf="@+id/menuButton"
             android:background="@drawable/custom_button_black" />
-		
- 
-		
-<!-- 		Main view  -->
 
-  <LinearLayout
-		    android:id="@+id/mainview"
-		    android:layout_width="match_parent"
-		    android:layout_height="wrap_content"
-		    android:layout_alignParentBottom="true"
-		    android:layout_alignParentLeft="true"
-		    android:layout_below="@+id/actionBar"
-		    android:orientation="vertical" 
-		    android:background="@color/white">
-		    
-             
+        <!-- Main view -->
 
-        <TextView
-            android:id="@+id/editText3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:textSize="18sp"
-            android:textColor="@color/icsdarkblue"
-            android:textStyle="bold"
-            android:paddingBottom="5dp"
-            android:text="Dubai Wildlife (Ras Al Khor) - Birds Sanctuary"
-            android:shadowColor="#CEE3F6"
-    android:shadowRadius="2.5"
-    android:shadowDx="10"
-    android:shadowDy="10" />
-
-        <TextView
-            android:id="@+id/editText2"
+        <RelativeLayout
+            android:id="@+id/mainview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="5dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:paddingBottom="5dp"
-             android:shadowColor="#BDBDBD"
-    android:shadowRadius="2.5"
-    android:shadowDx="2"
-    android:shadowDy="2"
-            android:gravity="left"
-            android:maxLines = "100"
-            android:scrollbars = "vertical"
-            android:inputType="textMultiLine"
-                       />
-
-    </LinearLayout>
-    
-    
-<!--   END OF MAIN VIEW -->
-<!-- 		Overlay screen  -->
-
-<RelativeLayout
-    	android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#4D000000"
-        
-        android:id="@+id/top_layout">
- 
-    <ImageView
-        android:id="@+id/ivInstruction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="50dp"
-        android:layout_alignParentLeft="true"
-      	android:clickable="false"
-        android:scaleType="center"
-        />
-        
-    </RelativeLayout>
-<!--  end of overlay screen  -->
-
-		
-<!-- tab parent linear layout -->
-
-
-<!-- 		    start of fauna layout -->
-		    <LinearLayout
-		    android:id="@+id/fauna"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_alignParentBottom="true"
-		    android:layout_alignParentLeft="true"
-		    android:layout_alignParentRight="true"
-		    android:layout_below="@+id/actionBar"
-		    android:orientation="vertical" >
-		    
-		    <LinearLayout
-	    android:id="@+id/content"
-        android:layout_height="fill_parent"
-        android:layout_width="match_parent"
-        android:orientation="vertical" >
-
-<TextView
-    android:id="@+id/texthead"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:gravity="center" />
-
-        <ImageView
-        android:id="@+id/image"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-       
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
-        
-<ScrollView
-    android:id="@+id/scrollView1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
-         
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            
-            android:orientation="horizontal" >
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/actionBar"
+            android:background="@color/white"
+            android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/text"
-                android:layout_width="fill_parent"
+                android:id="@+id/editText3"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-               />
+                android:gravity="center_horizontal"
+                android:paddingBottom="5dp"
+                android:text="Dubai Wildlife (Ras Al Khor) - Birds Sanctuary"
+                android:textColor="@color/icsdarkblue"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <WebView
+                android:id="@+id/editText2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/editText3"
+                
+               
+                
+             
+
+  />
+        </RelativeLayout>
+
+        <!-- END OF MAIN VIEW -->
+     
+
+        <!-- start of fauna layout -->
+
+        <LinearLayout
+            android:id="@+id/fauna"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/actionBar"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/texthead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center" />
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp" />
+
+                <ScrollView
+                    android:id="@+id/scrollView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/text"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- end of Fauna layout -->
+
+
+        <!-- Overlay screen -->
+
+        <RelativeLayout
+            android:id="@+id/faunaover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#4D000000" >
+
+            <ImageView
+                android:id="@+id/faunaimage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:clickable="false"
+                android:scaleType="center" />
+        </RelativeLayout>
+        <!-- end of overlay screen -->
+
+
+        <!-- Sanctuary Layout -->
+
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/actionBar"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/button1"
+                    style="@style/ButtonText"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/blue"
+                    android:text="Do&apos;s &amp; Dont" />
+
+                <Button
+                    android:id="@+id/button2"
+                    style="@style/ButtonText"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/green"
+                    android:text="Rules &amp; Regulations" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/button3"
+                    style="@style/ButtonText"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/purple"
+                    android:text="History &amp; Management" />
+
+                <Button
+                    android:id="@+id/button4"
+                    style="@style/ButtonText"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/yellow"
+                    android:text="Factsheet" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/button5"
+                    style="@style/ButtonText"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/blue"
+                    android:text="Future plan" />
+
+                <Button
+                    android:id="@+id/button6"
+                    style="@style/ButtonText"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/red"
+                    android:text="Plan a visit" />
+            </LinearLayout>
+
+            <!-- end of sanctuary laytout -->
 
         </LinearLayout>
-        </ScrollView>
 
-	</LinearLayout>
-	
-		    </LinearLayout>
-		    
-<!-- 		    end of Fauna layout -->
-		    
-		    <!-- 		Overlay screen  -->
+        <!-- Terrain and Bird hides layout -->
 
-<RelativeLayout
-    	android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#4D000000"
-        
-        android:id="@+id/faunaover">
- 
-    <ImageView
-        android:id="@+id/faunaimage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-      android:layout_centerInParent="true"    
-       android:layout_alignParentTop="true"
-        android:clickable="false"
-        
-        android:scaleType="center"
-        />
+        <LinearLayout
+            android:id="@+id/layoutimage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/actionBar"
+            android:orientation="vertical" >
 
+            <ImageView
+                android:id="@+id/imageshow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/dialogButtonOK" />
+        </LinearLayout>
+        <!-- end of Terrain and Bird hides layout -->
+        <!-- start of gallery layout -->
+
+        <RelativeLayout
+            android:id="@+id/layoutgallery"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/actionBar"
+            android:background="#ffffff"
+            android:orientation="vertical" >
+
+            <pvg.ky.wildlife.GalleryFlow
+                android:id="@+id/Gallery01"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerInParent="true" />
+
+            <Button
+                android:id="@+id/seemore"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:gravity="bottom|center_vertical|center_horizontal"
+                android:text="See More" />
+        </RelativeLayout>
+
+        <!-- end of gallery layout -->
+        <!-- Overlay screen -->
+
+        <RelativeLayout
+            android:id="@+id/galleryover"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#4D000000" >
+
+            <ImageView
+                android:id="@+id/galleryimage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:clickable="false"
+                android:paddingTop="20dp"
+                android:scaleType="center" />
+        </RelativeLayout>
+        <!-- end of overlay screen -->
+
+
+        <!-- layout for Getsocial -->
+
+        <LinearLayout
+            android:id="@+id/getsocial"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/actionBar"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/facebook"
+                    style="@style/ButtonText"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/blue"
+                    android:text="Facebook" />
+
+                <Button
+                    android:id="@+id/takeapic"
+                    style="@style/ButtonText"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/blue"
+                    android:text="Shoot and send a pic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/twitter"
+                    style="@style/ButtonText"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/purple"
+                    android:text="Twitter" />
+
+                <Button
+                    android:id="@+id/blog"
+                    style="@style/ButtonText"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/yellow"
+                    android:text="Blog" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/forum"
+                    style="@style/ButtonText"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/green"
+                    android:text="Forum" />
+            </LinearLayout>
+        </LinearLayout>
+        <!-- end of getsocial -->
     </RelativeLayout>
-<!--  end of overlay screen  -->
-		    
-<!-- 	Sanctuary Layout	    -->
-		<LinearLayout
-		    android:id="@+id/layout"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_alignParentBottom="true"
-		    android:layout_alignParentLeft="true"
-		    android:layout_alignParentRight="true"
-		    android:layout_below="@+id/actionBar"
-		    android:orientation="vertical" >
- <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:orientation="horizontal"
-        android:layout_weight="1" >
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-
-           android:text="Do&apos;s &amp; Dont"   
-           android:background="@drawable/blue"
-            style="@style/ButtonText"         
-/>
-
-        <Button
-            android:layout_width="0dip"
-             android:id="@+id/button2"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Rules &amp; Regulations" 
-             android:background="@drawable/green"
-            style="@style/ButtonText"    />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:orientation="horizontal"
-        android:layout_weight="1" >
-
-        <Button
-             android:id="@+id/button3"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="History &amp; Management" 
-            android:background="@drawable/purple"
-            style="@style/ButtonText"/>
-
-        <Button
-             android:id="@+id/button4"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Factsheet"
-            android:background="@drawable/yellow"
-            style="@style/ButtonText" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:orientation="horizontal"
-        android:layout_weight="1" >
-
-        <Button
-             android:id="@+id/button5"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Future plan"
-            android:background="@drawable/blue"
-            style="@style/ButtonText" />
-
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Plan a visit"
-           android:background="@drawable/red"
-            style="@style/ButtonText" />
-
-    </LinearLayout>
-		   
-
-
-    
-    <!-- 	end of sanctuary laytout	    -->
-
-		</LinearLayout>
-		
-		
-		 
-<!-- 		 Terrain and Bird hides layout -->
-		<LinearLayout
-		    android:id="@+id/layoutimage"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_alignParentBottom="true"
-		    android:layout_alignParentLeft="true"
-		    android:layout_alignParentRight="true"
-		    android:layout_below="@+id/actionBar"
-		    android:orientation="vertical" >
-    
-		     <ImageView
-         android:id="@+id/imageshow"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_above="@+id/dialogButtonOK"
-          />
-        
-		    </LinearLayout>
-<!-- 		end of Terrain and Bird hides layout -->
-<!-- start of gallery layout -->
-		<RelativeLayout
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" 
-       android:id="@+id/layoutgallery"
-         android:layout_below="@+id/actionBar"
-         android:background="#ffffff">
-
-		     
-	    
-		 <pvg.ky.wildlife.GalleryFlow
-		     	android:id="@+id/Gallery01" 
-	android:layout_width="fill_parent" 
-	android:layout_height="fill_parent" 
-	android:layout_centerInParent="true" />
-
-
-		 
-	
-		  <Button
-     android:id="@+id/seemore"
-     android:layout_width="fill_parent"
-     android:layout_height="50dp"
-     android:layout_alignParentBottom="true"
-     android:gravity="bottom|center_vertical|center_horizontal"
-     android:text="See More" />
-    
-</RelativeLayout>
-		  
-		
-<!-- 		 end of gallery layout -->
-<!-- 		Overlay screen  -->
-
-<RelativeLayout
-    	android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="#4D000000"
-        
-        android:id="@+id/galleryover">
- 
-    <ImageView
-        android:id="@+id/galleryimage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true" 
-       android:layout_alignParentTop="true"
-       android:paddingTop="20dp"
-      	android:clickable="false"
-        android:scaleType="center"
-        />
-        
-    </RelativeLayout>
-<!--  end of overlay screen  -->
- 
-<!-- 		  layout for Getsocial -->
-	    
-     <LinearLayout
-		    android:id="@+id/getsocial"
-		    android:layout_width="match_parent"
-		    android:layout_height="match_parent"
-		    android:layout_alignParentBottom="true"
-		    android:layout_alignParentLeft="true"
-		    android:layout_alignParentRight="true"
-		    android:layout_below="@+id/actionBar"
-		    android:orientation="vertical" >
-		 
-		      <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:orientation="horizontal"
-        android:layout_weight="1" >
-
-        <Button
-            android:id="@+id/facebook"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/blue"
-            style="@style/ButtonText"
-           
-            android:text="Facebook"
-          />
-
-        <Button
-            android:id="@+id/takeapic"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/blue"
-            style="@style/ButtonText"
-           
-            android:text="Shoot and send a pic"
-          />
-        
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:orientation="horizontal"
-        android:layout_weight="1" >
-
-        <Button
-            android:id="@+id/twitter"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-             android:background="@drawable/purple"
-             android:text="Twitter"
-            style="@style/ButtonText"/>
-
-        <Button
-            android:id="@+id/blog"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-          
-            android:text="Blog"
-             android:background="@drawable/yellow"
-            style="@style/ButtonText"/>
-
-    </LinearLayout>
-
-      <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:orientation="horizontal"
-        android:layout_weight="1" >
-
-        <Button
-            android:id="@+id/forum"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-        
-            android:text="Forum"
-              android:background="@drawable/green"
-            style="@style/ButtonText"
-           />
-        
-        
-        
-    </LinearLayout>
-    </LinearLayout>
-<!-- 		     end of getsocial -->
-    </RelativeLayout>
 </RelativeLayout>

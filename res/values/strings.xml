@@ -1,5 +1,3 @@
-
-
 <resources>
     <string name="application_name">Wildlife.ae</string>
     <string name="activity_name">ABS: Demos</string>
@@ -150,5 +148,199 @@
     <string name="registrar">Registrar</string>
 	<string name="registering">Registrando…</string>
 	<string name="imagesend">Capture &amp; Send Image</string>
+	
+	
+	<string name="dosdont">
+<![CDATA[
+<html>
+ <head>
+ </head>
+ <body style="text-align:justify;color:gray;">
+ The following practices are prohibited and may result in heavy fines and legal action:
+ <br>
+ <br>
+ 1) Entering the sanctuary, outside the hides, without a permit from Environment Department, Dubai Municipality 
+ <br>
+ <br>
+ 2) Parking outside the designated areas
+ <br>
+ <br>
+ 3) Introducing pets or foreign species into the sanctuary
+ <br>
+ <br>
+ 4) Entering beyond the track area
+ <br>
+ <br>
+ 5) Polluting the soil, water, or air of the sanctuary
+ <br>
+ <br>
+ 6) Approaching or harming wildlife
+ <br>
+ <br>
+ 7) Damaging vegetation or geological formations
+ <br>
+ <br>
+ 8) Collecting or transporting plants, animals or parts thereof
+ <br>
+ <br>
+ 9) Producing noise or using noise producing tools/equipment
+ <br>
+ <br>
+ 10) Using firearms, hunting or trapping of any kind
+ <br>
+ <br>
+ </body>
+</html>
+]]>
+</string>
+<string name="rules">
+<![CDATA[
+<html>
+ <head>
+ </head>
+ <body style="text-align:justify;color:gray;background-color:white;">
+Local Law No. 11 of 2003 on the ESTABLISHMENT of PROTECTED AREAS in the EMIRATE of DUBAI specifies:<br>
+<br>
+Any work, acts, activities or procedures which may destroy or damage wildlife, marine flora and fauna, and affect the aesthetic standard in protected areas, shall be prohibited; particularly the following:<br>
+<br>
+Hunting, transporting, killing or disturbing marine or other wildlife; or undertake any acts which lead to their destruction.<br><br>
+Hunting, removal or transporting of any creatures or organic materials such as mollusks, coral reefs, rocks or soil for any purpose.<br><br>
+Destroying or transporting plants from the protected areas.<br><br>
+Damaging or disfiguring geological or geographical formations of areas considered to be the habitat of animal or plant species or their proliferation.<br><br>
+Introducing non-indigenous species to the protected areas.<br><br>
+Polluting the soil, water or air of the protected area by any means.<br><br>
+Constructing buildings, structures, roads; using motorized vehicles or practicing any agriculture, industrial or commercial activities in the protected areas, or practice any activity, acts or works in areas surrounding the conservation area unless by a permit from the competent authority in accordance with approved conditions and rules<br><br>
+Violators of rules and regulations can be prosecuted under the Local Law No. 11 of 2003, and local order No. 61 of 1991.<br><br>
+<br>
+ </body>
+</html>
+]]>
+</string>
+<string name="history">
+<![CDATA[
+<html>
+ <head>
+ </head>
+ <body style="text-align:justify;color:gray;background-color:white;">
+RAKWS was established in 1985 and was officially declared as a protected area on March 1, 1998 by Local Order No. (2) of 1998. In December 2003, His Highness, the Ruler of Dubai has promulgated Law No. 11 of 2003 on the Establishment of Protected Areas in the Emirate of Dubai giving RAKWS full protection from Dubai Municipality.<br><br>
+
+On August 29, 2007, RAKWS was declared as the UAE\'s first RAMSAR Site. It was officially accepted on December 29, 2007 where the UAE become the 156th member of the RAMSAR Convention. It is also identified as a globally Important Bird Area (IBA) by Birdlife International and considered an exceptional wetland within UAE.
+<br><br>
+The specific role of Dubai Municipality in environmental conservation is to:
+<br><br>
+Prepare conservation plans and legislation<br><br>
+Conduct research and studies<br><br>
+Conserve and restore the biodiversity of the Emirate of Dubai<br><br>
+Ensure the protection of plants and animal stocks of actual or potential value to mankind<br><br>
+Help the preservation of species and ecological processes that underline rural productivity and the restoration of ecosystems degraded by unwise land use<br><br>
+Ensure protection of conservation areas in accordance with Law No. 11 of 2003 on protected areas<br><br>
+Enforce laws on the violators<br><br>
+The main objectives of the RAKWS management are to:<br><br>
+
+Conserve and improve the biological diversity of coastal and terrestrial ecosystems typical of the intertidal area along the shores of Ras Al Khor<br><br>
+Maintain the essential ecological processes within these systems<br><br>
+Manage their renewable resources sustainably<br><br>
+Undertake studies and research to generate data for better management of the Sanctuary<br><br>
+Protect and restore the faunal and floral diversity, as well as natural abundance of individual species through habitat conservation, management and restoration<br><br>
+Educate the community about natural heritage, general principles of conservation and the sustainable use of biological resources<br><br>
+Develop and implement an ecotourism programme in the wilderness area<br><br>
+<br>
+ </body>
+</html>
+]]>
+</string>
+<string name="factsheet">
+<![CDATA[
+<html>
+ <head>
+ </head>
+ <body style="text-align:justify;color:gray;background-color:white;">
+ Country/Territory: United Arab Emirates<br>
+Administrative region(s): Dubai<br>
+Central coordinates: 55o 20\' East 25o 12\' North Map<br>
+Area: 620 ha<br>
+Altitude: 0 - 20m<br>
+Criteria: A4iii, B1i<br>
+<br>
+Site description:<br>
+The head of a 10-km-long tidal creek which penetrates 7 km inland from the Gulf through Dubai city, containing tidal mudflats (maximum low-water extent c.150 ha) and a lagoon with maximum depth of 2 m and tidal range of 1.0-1.5 m. Flat sabkhah surrounds the intertidal area; there is some salt-tolerant scrub above the high-tide line, and some Tamarix in disturbed areas. The intertidal zone supports an abundant invertebrate fauna, but in late 1993 most of the 50-cm-deep top layer of mud was scoured off and a network of channels created, after which most of the area was densely planted with mangrove saplings. There is nutrient enrichment from irrigation run-off and treated sewag<br>
+effluent. Seawards of the mudflats the creek has been dredged for <br>
+shipping, and much is bounded by commercial development. The land is under the authority of the Coastguard, but is owned by the Government of Dubai/His Highness Sheikh Mohammed.<br>
+<br>
+<br>
+ </body>
+</html>
+]]>
+</string>
+<string name="future">
+<![CDATA[
+<html>
+ <head>
+ </head>
+ <body style="text-align:justify;color:gray;background-color:white;">
+ The Ras Al Khor Sanctuary has great plans for the future. A state-of-the-art Visitor\'s Centre will shortly be launched. The Centre will be complete with a reception and interpretation lounge, wildlife showcase that displays the unique features of the Sanctuary, mangrove boardwalk, live CCTV observation, merchandise and souvenir store, multimedia library and laboratory facilities, administration office and a cafeteria. On completion, this technologically advanced Centre will easily allow visitors to access information and get a closer understanding of the Biological diversity of the Sanctuary. The interpretative services will be a boost to the education, recreation and awareness of the protected area experience. It could also become the Centre for Communication Education and Public Awareness (CEPA) of the Ramsar Convention.<br><br><br>
+ </body>
+</html>
+]]>
+</string>
+<string name="plan">
+<![CDATA[
+<html>
+ <head>
+ </head>
+ <body style="text-align:justify;color:gray;background-color:white;">
+Visitor entry process:
+<br><br>
+
+1) Individuals and families can go directly to the sanctuary and register on the visitors/’ logbook.<br><br>
+2) Group tours, media organizations or affiliates, academic institutions and companies must apply and get an entry permit thru the internet:<br><br>
+<br>
+First , you have to register on the website http://www.dm.gov.ae. <br><br>
+a) If you still do not have a user name and password, follow the steps enumerated below:<br>
+Click on “Register ”<br><br>
+Click “Company and Admin. User Registration”, then follow procedure of registration;<br>
+After registration, print the application form and let the CEO/Owner and Administrative Manager sign the document then submit it to the Information Technology Department, Dubai Municipality;<br>
+Afterwards username and password will be send to the email address written on the application form.<br>
+b) If company already have username and password just “Log-in”.<br><br>
+
+Permits will be issued electronically and must be printed. A copy of the permit should be given to hide staffs in the sanctuary.<br> 
+Apply only one week prior to visit. At least two working days are required to process the permits .<br>
+<br><br>
+For any technical assistance in getting permits, comments and complaints<br> 
+please e -mailto:
+jcaguhob@dm.gov.ae  mahussain@dm.gov.ae <br>
+or call: 6066826 ; 6066822<br><br>
+
+<br><br><br>
+ </body>
+</html>
+]]>
+</string>
+<string name="contact">
+<![CDATA[
+<html>
+ <head>
+ </head>
+ <body style="text-align:justify;background-color: 'transparent';">
+Visitor entry process:<br><br>
+Visitors must apply to :<br>
+The Marine Environment & Wildlife Section, 
+<br>Environment Department, 
+<br>Dubai Municipality,
+<br>PO Box 67, 
+<br>Dubai.
+<br>Tel:+971-4-6066822/+971-4-6066826
+<br>Fax +971-4-7033532
+<br>
+<br>Request for Permit to Visit Wildlife Sanctuary: Apply only three days prior to visit.
+<br>At least two working days are required to process the permits.<br>
+CREDITS : Photint Venture Group<br>
+<br>
+<br>
+<br>
+ </body>
+</html>
+]]>
+</string>
     
 </resources>

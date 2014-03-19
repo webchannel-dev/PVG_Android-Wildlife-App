@@ -39,12 +39,14 @@ import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
 import android.util.FloatMath;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.animation.TranslateAnimation;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AdapterView;
@@ -79,8 +81,8 @@ public class PrincipalActivity extends SherlockActivity implements ActionBar.Tab
     File file = new File(Environment.getExternalStorageDirectory()+File.separator +"/Wildlife/"+ System.currentTimeMillis()+".jpg");
   
    
-	private RelativeLayout layout,overlay,layoutgallery,faunaover,galleryover;
-	private LinearLayout layoutsanctuary,layoutimage,getsocial,fauna,mainview;
+	private RelativeLayout layout,overlay,layoutgallery,faunaover,galleryover,mainview;
+	private LinearLayout layoutsanctuary,layoutimage,getsocial,fauna;
 	
 	
 	private MenuLazyAdapter menuAdapter;
@@ -135,6 +137,16 @@ String path;
       
         setContentView(R.layout.principal);
         
+	    final ImageView principalImageView = (ImageView) findViewById(R.id.menuButton);
+	    principalImageView.setBackgroundResource(R.drawable.menuanim);
+        final AnimationDrawable menuanimation = (AnimationDrawable)principalImageView.getBackground();
+        principalImageView.post(new Runnable(){
+            @Override
+            public void run() {
+                menuanimation.start();                
+            }            
+        }); 
+        
         Integer[] images = { R.drawable.gallery, R.drawable.gallery2,
                 R.drawable.gallery3, R.drawable.gallery4, R.drawable.gallery5,
                 R.drawable.gallery6 };
@@ -145,7 +157,7 @@ String path;
         getSupportActionBar().hide();
         this.listMenu = (ListView) findViewById(R.id.listMenu);
         this.layout = (RelativeLayout) findViewById(R.id.layoutToMove);
-        this.overlay = (RelativeLayout) findViewById(R.id.top_layout);
+       // this.overlay = (RelativeLayout) findViewById(R.id.top_layout);
         this.faunaover = (RelativeLayout) findViewById(R.id.faunaover);
         faunaover.setVisibility(View.GONE);
         this.galleryover = (RelativeLayout) findViewById(R.id.galleryover);
@@ -155,24 +167,43 @@ String path;
         this.fauna = (LinearLayout) findViewById(R.id.fauna);
         this.layoutimage = (LinearLayout) findViewById(R.id.layoutimage);
         this.getsocial = (LinearLayout) findViewById(R.id.getsocial);
-        this.mainview = (LinearLayout) findViewById(R.id.mainview);
+        this.mainview = (RelativeLayout) findViewById(R.id.mainview);
         this.appName = (TextView) findViewById(R.id.appName);
         
-        final ImageView hand = (ImageView) findViewById(R.id.ivInstruction);
-        hand.setBackgroundResource(R.drawable.hand);
-        final AnimationDrawable frameAnimation = (AnimationDrawable)hand.getBackground();
-    	hand.post(new Runnable(){
-            @Override
-            public void run() {
-                frameAnimation.start();                
-            }            
-        }); 
+//        final ImageView hand = (ImageView) findViewById(R.id.ivInstruction);
+//        hand.setBackgroundResource(R.drawable.hand);
+//        final AnimationDrawable frameAnimation = (AnimationDrawable)hand.getBackground();
+//    	hand.post(new Runnable(){
+//            @Override
+//            public void run() {
+//                frameAnimation.start();                
+//            }            
+//        }); 
+//        
+//    	
         
-    	
-        TextView editText2 = (TextView) findViewById(R.id.editText2);
-        editText2.setMovementMethod(new ScrollingMovementMethod());
-        editText2.setLineSpacing(1, 2);
-              
+        
+        
+        
+        
+      WebView editText2 = (WebView) findViewById(R.id.editText2);
+      editText2.setVerticalScrollBarEnabled(true);
+      editText2.getSettings().setPluginState(WebSettings.PluginState.ON);
+      editText2.getSettings().setPluginsEnabled(true);
+      editText2.getSettings().setAllowFileAccess(true);
+      editText2.getSettings().setJavaScriptEnabled(true);
+      editText2.getSettings().setLoadWithOverviewMode(true);
+      editText2.getSettings().setUseWideViewPort(true);
+      editText2.getSettings().setLoadWithOverviewMode(true);
+      editText2.getSettings().setUseWideViewPort(true);
+      editText2.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
+      editText2.setScrollbarFadingEnabled(true);
+     editText2.loadUrl("file:///android_asset/page.html");
+  // editText2.loadData(getString(R.string.hello), "text/html", "utf-8");
+      /* editText2.setMovementMethod(new ScrollingMovementMethod());
+       editText2.setLineSpacing(1, 2);*/
+        
+        
         String text = "<font color=#625D5D>Wildlife.ae is the official applicaiton of the Ras Al Khor Wildlife Sanctuary or RAKWS.\nRAKWS is one of the few urban protected areas in the world, holding approximately more than 450 species of fauna and 47 species of flora.\nThe sanctuary also boasts various ecosystems from mangroves, mudflats, lagoons and sabkhas to reed beds and shrub lands.\n</font>" +
         		 "<font color=#0099CC><br>UAE joining Ramsar Convention</font>" +
         		"<font color=#625D5D><br>The United Arab Emirates (UAE) has ratified the Ramsar Convention when the UNESCO, the Ramsar Convention's legal depositary, announced that its partnership to the Convention will enter into force on 29 December 2007.</font>" +
@@ -182,7 +213,9 @@ String path;
         		"<font color=#625D5D><br>With The UAE's accession, Ras Al Khor Wildlife Sanctuary (RAKWS) has become the Nation's first Ramsar wetland site. RAKWS is located at the head of the 14Km long watercourse known as Dubai Creek, and covers an area of 620 hectares featuring sabkhas saline flats, intertidal mudflats and mangroves, small lagoons and pools, and a few tiny islands which lies at the interface between the Persian Gulf and the Al Awir Desert.During winter, RAKWS supports more than 20,000 water birds of 67 species and acts as a critical staging ground for the wintering birds of the East African-West Asian Flyway. The site hosts more than 500 species of flora and fauna and is one of the best-managed arid zone wetlands in the region. Located within Dubai city, it is an important eco-tourism destination and receives increasing numbers of local and international visitors.The importance of RAKWS is beyond its aesthetic value. It serves as a beacon on the significance of biodiversity as a life supporting system for humanity's continual existence and its being an integral part of the cultural and traditional heritage of the UAE.</font>";
         
         
-        editText2.setText(Html.fromHtml(text));
+//       editText2.setText(Html.fromHtml(text));
+        
+        
         appName.setOnClickListener(this);
         
        
@@ -192,7 +225,7 @@ String path;
         
     
       if (isFirstTime()) {
-       	overlay.setVisibility(View.VISIBLE);
+       //	overlay.setVisibility(View.VISIBLE);
        	faunaover.setVisibility(View.GONE);
         galleryover.setVisibility(View.GONE);
         
@@ -668,13 +701,8 @@ String path;
 					imaged.setImageResource(R.drawable.dm);
 		 
 					// set the custom dialog components - text, image and button
-					TextView text = (TextView) dialog.findViewById(R.id.text);
-					text.setMovementMethod(new ScrollingMovementMethod());
-					text.setText("Visitor entry process:\n\nVisitors must apply to :\nThe Marine Environment & Wildlife Section, \nEnvironment Department, \nDubai Municipality,\nPO Box 67, \nDubai.\n\nTel  +971-4-6066822 / +971-4-6066826\nFax +971-4-7033532\n\nRequest for Permit to Visit Wildlife Sanctuary: Apply only three days prior to visit.\nAt least two working days are required to process the permits.\n\nCREDITS : Photint Venture Group");
-					
-//					ImageView image = (ImageView) dialog.findViewById(R.id.image);
-//					image.setImageResource(R.drawable.dosdonts);
-		 
+					WebView text = (WebView) dialog.findViewById(R.id.text);
+					text.loadData(getString(R.string.contact), "text/html", "utf-8");
 					Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
 					
 					
@@ -948,12 +976,11 @@ String path;
 						
 			 
 						// set the custom dialog components - text, image and button
-						TextView text = (TextView) dialog.findViewById(R.id.text);
-						text.setMovementMethod(new ScrollingMovementMethod());
-						text.setText("The following practices are prohibited and may result in heavy fines and legal action: \n \n1) Entering the sanctuary, outside the hides, without a permit from Environment Department, Dubai Municipality \n\n2) Parking outside the designated areas\n\n3) Introducing pets or foreign species into the sanctuary\n\n4) Entering beyond the track area\n\n5) Polluting the soil, water, or air of the sanctuary\n\n6) Approaching or harming wildlife\n\n7) Damaging vegetation or geological formations\n\n8) Collecting or transporting plants, animals or parts thereof\n\n9) Producing noise or using noise producing tools/equipment\n\n10) Using firearms, hunting or trapping of any kind");
-						
-//						ImageView image = (ImageView) dialog.findViewById(R.id.image);
-//						image.setImageResource(R.drawable.dosdonts);
+						WebView text = (WebView) dialog.findViewById(R.id.text);
+						text.loadData(getString(R.string.dosdont), "text/html", "utf-8");
+				
+						ImageView imaged = (ImageView) dialog.findViewById(R.id.imageView1);
+						imaged.setImageResource(R.drawable.dialogback);
 			 
 						Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
 						// if button is clicked, close the custom dialog
@@ -987,14 +1014,8 @@ String path;
 						dialog.setTitle("Rules & Regulations");
 						
 						
-			 
-						// set the custom dialog components - text, image and button
-						TextView text = (TextView) dialog.findViewById(R.id.text);
-						text.setMovementMethod(new ScrollingMovementMethod());
-						text.setText("Local Law No. 11 of 2003 on the ESTABLISHMENT of PROTECTED AREAS in the EMIRATE of DUBAI specifies:\n\n Any work, acts, activities or procedures which may destroy or damage wildlife, marine flora and fauna, and affect the aesthetic standard in protected areas, shall be prohibited; particularly the following:\n\n 1)Hunting, transporting, killing or disturbing marine or other wildlife; or undertake any acts which lead to their destruction.\n2)Hunting, removal or transporting of any creatures or organic materials such as mollusks, coral reefs, rocks or soil for any purpose.\n3)Destroying or transporting plants from the protected areas.\n4)Damaging or disfiguring geological or geographical formations of areas considered to be the habitat of animal or plant species or their proliferation.\n4)Introducing non-indigenous species to the protected areas.\n5)Polluting the soil, water or air of the protected area by any means.\n6)Constructing buildings, structures, roads; using motorized vehicles or practicing any agriculture, industrial or commercial activities in the protected areas, or practice any activity, acts or works in areas surrounding the conservation area unless by a permit from the competent authority in accordance with approved conditions and rules\n\nViolators of rules and regulations can be prosecuted under the Local Law No. 11 of 2003, and local order No. 61 of 1991.");
-						
-//						ImageView image = (ImageView) dialog.findViewById(R.id.image);
-//						image.setImageResource(R.drawable.dosdonts);
+						WebView text = (WebView) dialog.findViewById(R.id.text);
+						text.loadData(getString(R.string.rules), "text/html", "utf-8");
 			 
 						Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
 						// if button is clicked, close the custom dialog
@@ -1028,14 +1049,8 @@ String path;
 						dialog.setTitle("History & Management");
 						
 						
-			 
-						// set the custom dialog components - text, image and button
-						TextView text = (TextView) dialog.findViewById(R.id.text);
-						text.setMovementMethod(new ScrollingMovementMethod());
-						text.setText("RAKWS was established in 1985 and was officially declared as a protected area on March 1, 1998 by Local Order No. (2) of 1998. In December 2003, His Highness, the Ruler of Dubai has promulgated Law No. 11 of 2003 on the Establishment of Protected Areas in the Emirate of Dubai giving RAKWS full protection from Dubai Municipality.\nOn August 29, 2007, RAKWS was declared as the UAE's first RAMSAR Site. It was officially accepted on December 29, 2007 where the UAE become the 156th member of the RAMSAR Convention. It is also identified as a globally Important Bird Area (IBA) by Birdlife International and considered an exceptional wetland within UAE.\nThe specific role of Dubai Municipality in environmental conservation is to:\n1)Prepare conservation plans and legislation\n2)Conduct research and studies\n3)Conserve and restore the biodiversity of the Emirate of Dubai\n4)Ensure the protection of plants and animal stocks of actual or potential value to mankind\n5)Help the preservation of species and ecological processes that underline rural productivity and the restoration of ecosystems degraded by unwise land use\n6)Ensure protection of conservation areas in accordance with Law No. 11 of 2003 on protected areas\n7)Enforce laws on the violators\n\nThe main objectives of the RAKWS management are to:\n1)Conserve and improve the biological diversity of coastal and terrestrial ecosystems typical of the intertidal area along the shores of Ras Al Khor\n2)Maintain the essential ecological processes within these systems\n3)Manage their renewable resources sustainably\n4)Undertake studies and research to generate data for better management of the Sanctuary\n5)Protect and restore the faunal and floral diversity, as well as natural abundance of individual species through habitat conservation, management and restoration\n6)Educate the community about natural heritage, general principles of conservation and the sustainable use of biological resources\n7)Develop and implement an ecotourism programme in the wilderness area");
-						
-//						ImageView image = (ImageView) dialog.findViewById(R.id.image);
-//						image.setImageResource(R.drawable.dosdonts);
+						WebView text = (WebView) dialog.findViewById(R.id.text);
+						text.loadData(getString(R.string.history), "text/html", "utf-8");
 			 
 						Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
 						// if button is clicked, close the custom dialog
@@ -1066,15 +1081,8 @@ String path;
 				
 						dialog.setTitle("Sanctuary Factsheet");
 						
-						
-			 
-						// set the custom dialog components - text, image and button
-						TextView text = (TextView) dialog.findViewById(R.id.text);
-						text.setMovementMethod(new ScrollingMovementMethod());
-						text.setText("Country/Territory: United Arab Emirates\nAdministrative region(s): Dubai\nCentral coordinates: 55o 20' East 25o 12' North Map\nArea: 620 ha\nAltitude: 0 - 20m\nCriteria: A4iii, B1i\n\nSite description:\nThe head of a 10-km-long tidal creek which penetrates 7 km inland from the Gulf through Dubai city, containing tidal mudflats (maximum low-water extent c.150 ha) and a lagoon with maximum depth of 2 m and tidal range of 1.0-1.5 m. Flat sabkhah surrounds the intertidal area; there is some salt-tolerant scrub above the high-tide line, and some Tamarix in disturbed areas. The intertidal zone supports an abundant invertebrate fauna, but in late 1993 most of the 50-cm-deep top layer of mud was scoured off and a network of channels created, after which most of the area was densely planted with mangrove saplings. There is nutrient enrichment from irrigation run-off and treated sewage effluent.  Seawards of the mudflats the creek has been dredged for shipping, and much is bounded by commercial development. The land is under the authority of the Coastguard, but is owned by the Government of Dubai/His Highness Sheikh Mohammed.\n\nLand-use and percentage cover:\nnature conservation and research: 100%\n\nBirds:See box for key species. The most important mudflat area in the UAE, supporting a more varied assemblage of waterbird species at much higher densities than any other sites in the coastal zone, especially in winter and during passage periods. Important for Broad-billed Sandpiper (Limicola falcinellus); no other significant concentrations have been found elsewhere in the country. Furthermore, the site is well-known for its population of Flamingoes (Phoenicopterus ruber), which is present all year but is largest in winter (January av. max. 1,400, 1989-1992; 2,300 in February 1990, peak 3,100 in January 2011 ); another notable winter visitor is Pacific Golden Plover (Pluvialis fulva) (max. 40). Large numbers of Common Black-headed Gull (Larus ridibundus) also roost in winter (see box).\n\nSpecies	Season	Year	Min	Max	Quality	Criteria\nGrey Plover (Pluvialis squatarola)	breeding	2007-2011	400	1000	good	B1i\nGrey Plover (Pluvialis squatarola)	passage	1992	727	0	good	B1i\nKentish Plover (Charadrius alexandrinus)	breeding	2007-2011	300	1500	good	B1i\nLesser Sand Plover (Charadrius mongolus)	breeding	2007-2011	500	2000	good	B1i\nBar-tailed Godwit (Limosa lapponica)	non-breeding	1990	700	1100	good	B1i\nEurasian Curlew (Numenius arquata)	non-breeding	2007-2011	100	500	good	B1i\nCommon Redshank (Tringa totanus)	breeding	2007-2011	450	1000	good	B1i\nDunlin (Calidris alpina)	non-breeding	2007-2011	400	2400	good	B1i\nBroad-billed Sandpiper (Limicola falcinellus)	non-breeding	2007-2011	400	2500	good	B1i\nLittle Stint (Calidris minuta)	breeding	2007-2011	4000	6000	good	B1i\nBlack-headed Gull (Larus ridibundus)	non-breeding	2007-2011	500	4500	good	B1i\n\nConservation approaches:\nThe Government of Dubai/His Highness Sheikh Mohammed declared the area a Wildlife Sanctuary in 1985, giving protection from interference (only) at his discretion. Thousands of mangrove, Avicennia  sp. saplings were planted in  1991 to 1994. The mangrove forest is steadily flourishing since then. A Mangrove Management Plan is currently being developed to maximize the advantages of the expanding forest which is currently showing signs of encroachment to the mudflats.  Moreover, researches on the biodiversity of the sanctuary are continuously being undertaken.  Lectures are also being conducted (upon request) regarding the sanctuary to schools or any groups interested in the activities being done in the sanctuary.\n\nCitation:\nBirdLife International 2007 BirdLife's online World Bird Database: the site for bird conservation. Version 2.1. Cambridge, UK: BirdLife International. Available: http://www.birdlife.org (accessed 4/7/2007)");
-						
-//						ImageView image = (ImageView) dialog.findViewById(R.id.image);
-//						image.setImageResource(R.drawable.dosdonts);
+						WebView text = (WebView) dialog.findViewById(R.id.text);
+						text.loadData(getString(R.string.factsheet), "text/html", "utf-8");
 			 
 						Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
 						// if button is clicked, close the custom dialog
@@ -1107,13 +1115,8 @@ String path;
 						
 						
 			 
-						// set the custom dialog components - text, image and button
-						TextView text = (TextView) dialog.findViewById(R.id.text);
-						text.setMovementMethod(new ScrollingMovementMethod());
-						text.setText("The Ras Al Khor Sanctuary has great plans for the future. A state-of-the-art Visitor's Centre will shortly be launched. The Centre will be complete with a reception and interpretation lounge, wildlife showcase that displays the unique features of the Sanctuary, mangrove boardwalk, live CCTV observation, merchandise and souvenir store, multimedia library and laboratory facilities, administration office and a cafeteria. On completion, this technologically advanced Centre will easily allow visitors to access information and get a closer understanding of the Biological diversity of the Sanctuary. The interpretative services will be a boost to the education, recreation and awareness of the protected area experience. It could also become the Centre for Communication Education and Public Awareness (CEPA) of the Ramsar Convention.");
-						
-//						ImageView image = (ImageView) dialog.findViewById(R.id.image);
-//						image.setImageResource(R.drawable.dosdonts);
+						WebView text = (WebView) dialog.findViewById(R.id.text);
+						text.loadData(getString(R.string.future), "text/html", "utf-8");
 			 
 						Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
 						// if button is clicked, close the custom dialog
@@ -1144,10 +1147,9 @@ String path;
 				
 						dialog.setTitle("Plan a visit");
 						
-						TextView text = (TextView) dialog.findViewById(R.id.text);
-						text.setMovementMethod(new ScrollingMovementMethod());
-						text.setText("Visitor entry process:\n\n1) Individuals and families can go directly to the sanctuary and register on the visitors’ logbook.\n2) Group tours, media organizations or affiliates, academic institutions and companies must apply and get an entry permit thru the internet:\n\nFirst , you have to register on the website http://www.dm.gov.ae.\na) If you still do not have a user name and password, follow the steps enumerated below:\nClick on “Register ”\nClick “Company and Admin. User Registration”, then follow procedure of registration;\nAfter registration, print the application form and let the CEO/Owner and Administrative Manager sign the document then submit it to the Information Technology Department, Dubai Municipality;\nAfterwards username and password will be send to the email address written on the application form.\nb) If company already have username and password just “Log-in”.\n\nPermits will be issued electronically and must be printed. A copy of the permit should be given to hide staffs in the sanctuary.\nApply only one week prior to visit. At least two working days are required to process the permits .\nFor any technical assistance in getting permits, comments and complaints please e -mail   to:jcaguhob @dm.gov.ae  mahussain@dm.gov.ae or call: 6066826 ; 6066822");			 
-					
+						WebView text = (WebView) dialog.findViewById(R.id.text);
+						text.loadData(getString(R.string.plan), "text/html", "utf-8");
+						
 						Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
 						// if button is clicked, close the custom dialog
 						dialogButton.setOnClickListener(new OnClickListener() {
@@ -1408,16 +1410,16 @@ String path;
          SharedPreferences.Editor editor = preferences.edit();
          editor.putBoolean("RanBefore", true);
          editor.commit();
-         overlay.setVisibility(View.VISIBLE);
-         overlay.setOnTouchListener(new View.OnTouchListener(){
-
-		@Override
-		public boolean onTouch(View v, MotionEvent event) {
-		overlay.setVisibility(View.INVISIBLE);
-		return false;
-		}
-
-		            });
+//         overlay.setVisibility(View.VISIBLE);
+//         overlay.setOnTouchListener(new View.OnTouchListener(){
+//
+//		@Override
+//		public boolean onTouch(View v, MotionEvent event) {
+//		overlay.setVisibility(View.INVISIBLE);
+//		return false;
+//		}
+//
+//		            });
          faunaover.setOnTouchListener(new View.OnTouchListener(){
 
      		@Override

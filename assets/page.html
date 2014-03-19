@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	
+	<link rel="stylesheet" href="jquery-ui.css">
+	<script src="jquery.js"></script>
+	<script src="core.js"></script>
+	<script src="widget.js"></script>
+	<script src="accordion.js"></script>
+	
+	<script>
+	$(function() {
+    var icons = {
+      header: "ui-icon-circle-arrow-e",
+      activeHeader: "ui-icon-circle-arrow-s"
+    };
+    $( "#accordion" ).accordion({
+      icons: icons
+    });
+    $( "#toggle" ).button().click(function() {
+      if ( $( "#accordion" ).accordion( "option", "icons" ) ) {
+        $( "#accordion" ).accordion( "option", "icons", null );
+      } else {
+        $( "#accordion" ).accordion( "option", "icons", icons );
+      }
+    });
+  });
+	</script>
+</head>
+<body>
+
+<div id="accordion"style="text-align:justify;">
+	<h3>Welcome to Wildlife.ae</h3>
+	<div>
+		<p>Wildlife.ae is the official website of the Ras Al Khor Wildlife Sanctuary or RAKWS. RAKWS is one of the few urban protected areas in the world, holding approximately more than 450 species of fauna and 47 species of flora. The sanctuary also boasts various ecosystems from mangroves, mudflats, lagoons and sabkhas to reed beds and shrub lands.</p>
+	</div>
+	<h3>UAE joining Ramsar Convention</h3>
+	<div>
+		<p>The United Arab Emirates (UAE) has ratified the Ramsar Convention when the UNESCO, the Ramsar Convention's legal depositary, announced that its partnership to the Convention will enter into force on 29 December 2007.</p>
+	</div>
+	<h3>What is a Ramsar site?</h3>
+	<div>
+		<p>Ramsar sites are wetlands of international importance designated under the Ramsar Convention. The convention was developed and adopted by contracting nations at a meeting in Ramsar, Iran on February 2, 1971 and came into force on December 21, 1975. In January 2011, The Ramsar List of Wetlands of International Importance included 160 contracting parties covering over 1,900 sites (known as Ramsar sites) with a total area of over 187,984,550 km(Square), up from 1,021 sites.
+
+For the latest updates check Ramsar website: www.ramsar.org</p>
+		
+	</div>
+	<h3>UAE's first Ramsar site</h3>
+	<div>
+		<p>With The UAE's accession, Ras Al Khor Wildlife Sanctuary (RAKWS) has become the Nation's first Ramsar wetland site. RAKWS is located at the head of the 14Km long watercourse known as Dubai Creek, and covers an area of 620 hectares featuring sabkhas saline flats, intertidal mudflats and mangroves, small lagoons and pools, and a few tiny islands which lies at the interface between the Persian Gulf and the Al Awir Desert.
+
+During winter, RAKWS supports more than 20,000 water birds of 67 species and acts as a critical staging ground for the wintering birds of the East African-West Asian Flyway. The site hosts more than 500 species of flora and fauna and is one of the best-managed arid zone wetlands in the region. Located within Dubai city, it is an important eco-tourism destination and receives increasing numbers of local and international visitors.
+
+The importance of RAKWS is beyond its aesthetic value. It serves as a beacon on the significance of biodiversity as a life supporting system for humanity's continual existence and its being an integral part of the cultural and traditional heritage of the UAE.
+
+ </p>
+	</div>
+</div>
+</body>
+</html>
