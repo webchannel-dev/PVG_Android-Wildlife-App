@@ -11,7 +11,7 @@ import android.view.Window;
 import android.widget.ImageView;
 
 public class SplashScreen extends Activity {
-	protected int _splashTime = 200000; 
+	protected int _splashTime = 2000; 
 
 	private Thread splashTread;
 
@@ -22,17 +22,17 @@ public class SplashScreen extends Activity {
 	    requestWindowFeature(Window.FEATURE_NO_TITLE);
 	    setContentView(R.layout.splash1);
 
-	    final SplashScreen sPlashScreen = this; 
+	    
 	    final ImageView splashImageView = (ImageView) findViewById(R.id.SplashImageView);
-        splashImageView.setBackgroundResource(R.drawable.flag);
-        final AnimationDrawable frameAnimation = (AnimationDrawable)splashImageView.getBackground();
-        
-        splashImageView.post(new Runnable(){
-            @Override
-            public void run() {
-                frameAnimation.start();                
-            }            
-        }); 
+        splashImageView.setBackgroundResource(R.drawable.splash);
+//        final AnimationDrawable frameAnimation = (AnimationDrawable)splashImageView.getBackground();
+//        
+//        splashImageView.post(new Runnable(){
+//            @Override
+//            public void run() {
+//                frameAnimation.start();                
+//            }            
+//        }); 
 	    
 	    // thread for displaying the SplashScreen
 	    splashTread = new Thread() {

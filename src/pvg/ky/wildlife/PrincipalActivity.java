@@ -31,6 +31,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.PointF;
+import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Environment;
@@ -199,22 +200,7 @@ String path;
       editText2.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
       editText2.setScrollbarFadingEnabled(true);
      editText2.loadUrl("file:///android_asset/page.html");
-  // editText2.loadData(getString(R.string.hello), "text/html", "utf-8");
-      /* editText2.setMovementMethod(new ScrollingMovementMethod());
-       editText2.setLineSpacing(1, 2);*/
-        
-        
-        String text = "<font color=#625D5D>Wildlife.ae is the official applicaiton of the Ras Al Khor Wildlife Sanctuary or RAKWS.\nRAKWS is one of the few urban protected areas in the world, holding approximately more than 450 species of fauna and 47 species of flora.\nThe sanctuary also boasts various ecosystems from mangroves, mudflats, lagoons and sabkhas to reed beds and shrub lands.\n</font>" +
-        		 "<font color=#0099CC><br>UAE joining Ramsar Convention</font>" +
-        		"<font color=#625D5D><br>The United Arab Emirates (UAE) has ratified the Ramsar Convention when the UNESCO, the Ramsar Convention's legal depositary, announced that its partnership to the Convention will enter into force on 29 December 2007.</font>" +
-        		"<font color=#0099CC><br>What is a Ramsar site?</font>" + 
-        		"<font color=#625D5D><br>Ramsar sites are wetlands of international importance designated under the Ramsar Convention. The convention was developed and adopted by contracting nations at a meeting in Ramsar, Iran on February 2, 1971 and came into force on December 21, 1975. In January 2011, The Ramsar List of Wetlands of International Importance included 160 contracting parties covering over 1,900 sites (known as Ramsar sites) with a total area of over 187,984,550 km², up from 1,021 sites.For the latest updates check Ramsar website: www.ramsar.org</font>" +
-        		"<font color=#0099CC><br>UAE's first Ramsar site</font>" +
-        		"<font color=#625D5D><br>With The UAE's accession, Ras Al Khor Wildlife Sanctuary (RAKWS) has become the Nation's first Ramsar wetland site. RAKWS is located at the head of the 14Km long watercourse known as Dubai Creek, and covers an area of 620 hectares featuring sabkhas saline flats, intertidal mudflats and mangroves, small lagoons and pools, and a few tiny islands which lies at the interface between the Persian Gulf and the Al Awir Desert.During winter, RAKWS supports more than 20,000 water birds of 67 species and acts as a critical staging ground for the wintering birds of the East African-West Asian Flyway. The site hosts more than 500 species of flora and fauna and is one of the best-managed arid zone wetlands in the region. Located within Dubai city, it is an important eco-tourism destination and receives increasing numbers of local and international visitors.The importance of RAKWS is beyond its aesthetic value. It serves as a beacon on the significance of biodiversity as a life supporting system for humanity's continual existence and its being an integral part of the cultural and traditional heritage of the UAE.</font>";
-        
-        
-//       editText2.setText(Html.fromHtml(text));
-        
+ 
         
         appName.setOnClickListener(this);
         
@@ -311,7 +297,9 @@ String path;
 					// Ensures constant width of content during menu sliding
 					content.setLayoutParams(contentParams);
 				   mSelected = (TextView)findViewById(R.id.text);
+				   mSelected.setTypeface(null,Typeface.ITALIC);
 				   head = (TextView)findViewById(R.id.texthead);
+				   head.setTypeface(null,Typeface.BOLD_ITALIC);
 				   image = (ImageView)findViewById(R.id.image);
 				   tabs = getResources().getStringArray(R.array.birds);
 				   
@@ -696,13 +684,15 @@ String path;
 									
 			
 					dialog.setTitle("Contact & Credit");
-					
+					dialog.getWindow().setBackgroundDrawableResource(R.color.icsdarkblue);
 					ImageView imaged = (ImageView) dialog.findViewById(R.id.imageView1);
 					imaged.setImageResource(R.drawable.dm);
 		 
 					// set the custom dialog components - text, image and button
 					WebView text = (WebView) dialog.findViewById(R.id.text);
 					text.loadData(getString(R.string.contact), "text/html", "utf-8");
+					text.setBackgroundColor(0);
+					text.setBackgroundResource(R.drawable.dialogback);
 					Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
 					
 					
@@ -969,9 +959,11 @@ String path;
 						final Dialog dialog = new Dialog(PrincipalActivity.this);
 						
 										dialog.setContentView(R.layout.dialog);
-										
+										dialog.getWindow().setBackgroundDrawableResource(R.color.icsdarkblue);
 				
-						dialog.setTitle("Do's & Don't");
+					dialog.setTitle("Do's & Don't");
+						
+				
 						
 						
 			 
@@ -979,8 +971,8 @@ String path;
 						WebView text = (WebView) dialog.findViewById(R.id.text);
 						text.loadData(getString(R.string.dosdont), "text/html", "utf-8");
 				
-						ImageView imaged = (ImageView) dialog.findViewById(R.id.imageView1);
-						imaged.setImageResource(R.drawable.dialogback);
+						text.setBackgroundColor(0);
+						text.setBackgroundResource(R.drawable.dialogback);
 			 
 						Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
 						// if button is clicked, close the custom dialog
@@ -1012,11 +1004,12 @@ String path;
 										
 				
 						dialog.setTitle("Rules & Regulations");
-						
+						dialog.getWindow().setBackgroundDrawableResource(R.color.icsdarkblue);
 						
 						WebView text = (WebView) dialog.findViewById(R.id.text);
 						text.loadData(getString(R.string.rules), "text/html", "utf-8");
-			 
+						text.setBackgroundColor(0);
+						text.setBackgroundResource(R.drawable.dialogback);
 						Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
 						// if button is clicked, close the custom dialog
 						dialogButton.setOnClickListener(new OnClickListener() {
@@ -1047,11 +1040,12 @@ String path;
 										
 				
 						dialog.setTitle("History & Management");
-						
+						dialog.getWindow().setBackgroundDrawableResource(R.color.icsdarkblue);
 						
 						WebView text = (WebView) dialog.findViewById(R.id.text);
 						text.loadData(getString(R.string.history), "text/html", "utf-8");
-			 
+						text.setBackgroundColor(0);
+						text.setBackgroundResource(R.drawable.dialogback);
 						Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
 						// if button is clicked, close the custom dialog
 						dialogButton.setOnClickListener(new OnClickListener() {
@@ -1080,10 +1074,11 @@ String path;
 										
 				
 						dialog.setTitle("Sanctuary Factsheet");
-						
+						dialog.getWindow().setBackgroundDrawableResource(R.color.icsdarkblue);
 						WebView text = (WebView) dialog.findViewById(R.id.text);
 						text.loadData(getString(R.string.factsheet), "text/html", "utf-8");
-			 
+						text.setBackgroundColor(0);
+						text.setBackgroundResource(R.drawable.dialogback);
 						Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
 						// if button is clicked, close the custom dialog
 						dialogButton.setOnClickListener(new OnClickListener() {
@@ -1113,11 +1108,12 @@ String path;
 				
 						dialog.setTitle("Future Of Sanctuary");
 						
-						
+						dialog.getWindow().setBackgroundDrawableResource(R.color.icsdarkblue);
 			 
 						WebView text = (WebView) dialog.findViewById(R.id.text);
 						text.loadData(getString(R.string.future), "text/html", "utf-8");
-			 
+						text.setBackgroundColor(0);
+						text.setBackgroundResource(R.drawable.dialogback);
 						Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
 						// if button is clicked, close the custom dialog
 						dialogButton.setOnClickListener(new OnClickListener() {
@@ -1146,10 +1142,11 @@ String path;
 										
 				
 						dialog.setTitle("Plan a visit");
-						
+						dialog.getWindow().setBackgroundDrawableResource(R.color.icsdarkblue);
 						WebView text = (WebView) dialog.findViewById(R.id.text);
 						text.loadData(getString(R.string.plan), "text/html", "utf-8");
-						
+						text.setBackgroundColor(0);
+						text.setBackgroundResource(R.drawable.dialogback);
 						Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
 						// if button is clicked, close the custom dialog
 						dialogButton.setOnClickListener(new OnClickListener() {
@@ -1194,19 +1191,19 @@ String path;
 
 		 if(tab.getPosition()  == 0)   {
 			
-			 mSelected.setText("Order: CHARADRIIFORMES\nFamily: Sandpipers (Scolopacidae)\nLength: 18 cm\nWingspan: 40 cm\nWeight: M/F: 48 g\nWorld Distribution: BREEDS: c&n Europe, Siberia & n North America, WINTERS: south to s Asia, Africa & Mexico\nHabitat: Tundra, moor, heath, on migration estuaries & coasts");
+			 mSelected.setText("Order:\t\t CHARADRIIFORMES\nFamily:\t\t Sandpipers (Scolopacidae)\nLength:\t\t 18 cm\nWingspan:\t 40 cm\nWeight:\t\t M/F: 48 g\nWorld Distribution:\t BREEDS: c&n Europe, Siberia & n North America, WINTERS: south to s Asia, Africa & Mexico\nHabitat:\t\t Tundra, moor, heath, on migration estuaries & coasts");
 		     image.setImageResource(R.drawable.dunlino);
 		     head.setText("Dunlin Calidris alpina (Linnaeus, 1758)");
 	       	
 	          }else if(tab.getPosition() == 1){
 	        	  faunaover.setVisibility(View.INVISIBLE);
-	        	  mSelected.setText("Order: FALCONIFORMES\nFamily: Kites, Eagles and Hawks (Accipitridae)\nLength: 56 cm\nWingspan: 158 cm\nWeight: M/F: 1.5 kg\nWorld Distribution: Cosmopolitan, Northern populations generally winter further south\nHabitat: Lakes, rivers, seacoasts");
+	        	  mSelected.setText("Order:\t\t FALCONIFORMES\nFamily: Kites, Eagles and Hawks (Accipitridae)\nLength: 56 cm\nWingspan: 158 cm\nWeight: M/F: 1.5 kg\nWorld Distribution: Cosmopolitan, Northern populations generally winter further south\nHabitat: Lakes, rivers, seacoasts");
 	     	     image.setImageResource(R.drawable.ospreyo);
 	     	     head.setText("Osprey Pandion haliaetus (Linnaeus, 1758)");
 		     
 	          }else if(tab.getPosition() == 2){
 	        	  faunaover.setVisibility(View.INVISIBLE);
-	        	  mSelected.setText("Order: CHARADRIIFORMES\nFamily: Laridae\nLength: 38 cm\nWingspan: 100 cm\nWeight: M/F: 250 g\nWorld Distribution: BREEDS: Europe, s North America & n South America, WINTERS: south to s Africa, India & se South America\nHabitat: Sandy seacoasts, in winter estuaries");
+	        	  mSelected.setText("Order:\t\t CHARADRIIFORMES\nFamily: Laridae\nLength: 38 cm\nWingspan: 100 cm\nWeight: M/F: 250 g\nWorld Distribution: BREEDS: Europe, s North America & n South America, WINTERS: south to s Africa, India & se South America\nHabitat: Sandy seacoasts, in winter estuaries");
 	      	     image.setImageResource(R.drawable.sandwicho);
 	      	     head.setText("Sandwich Tern Sterna sandvicensis (Latham, 1787)");
 	          }else if(tab.getPosition() == 3){
